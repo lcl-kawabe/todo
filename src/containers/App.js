@@ -28,7 +28,7 @@ class App extends Component {
     const {todos} = this.props;
     return (
       <div>
-        <div>React + Redux Sample</div>
+        <div>タスク管理</div>
         <AddTodo onAddTodo={this.addTodo}  />
         <TodoList
           todos={todos}
