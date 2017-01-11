@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import FlatButton from 'material-ui/FlatButton';
 import Todo from './Todo'
 
 class TodoList extends Component{
@@ -14,11 +15,12 @@ class TodoList extends Component{
             completed={todo.completed}
             onClick={() => onTodoClick(todo.key)}
           />
-          <div
-            style={{marginLeft:10, fontSize:8, color:'red'}}
+          <FlatButton
+            style={{fontSize:8,minWidth:30,margin:'0 10'}}
+            secondary={true}
             onClick={() => onDeleteClick(todo.key)}>
-            Delete
-          </div>
+            削除
+          </FlatButton>
         </div>
       )
     });
