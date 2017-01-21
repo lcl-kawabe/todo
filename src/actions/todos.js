@@ -42,18 +42,21 @@ function addTodo(text){
 }
 
 // UPDATE_TASK
-function updateTodo(key){
+function updateTodo(todo){
   return (dispatch, getState) => {
     let state = getState()
-    let todo = state.todos.filter(todo => todo.key === key)
 
     // パスのオブジェクトをアップデートします。
     // updateにはオブジェクトを渡すと差分を自動で更新してくれます。
-    firebaseDb.ref(`todos/${key}`).update({completed: !todo[0].completed})
-      .catch(error => dispatch({
-        type: 'UPDATE_TASK_ERROR',
-        message: error.message,
-      }));
+    firebaseDb.ref(`todos/${todo.key}`)
+    .update({
+      text: todo.text,
+      completed: todo.completed,
+    })
+    .catch(error => dispatch({
+      type: 'UPDATE_TASK_ERROR',
+      message: error.message,
+    }));
   }
 }
 

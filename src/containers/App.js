@@ -48,9 +48,9 @@ class App extends Component {
     dispatch(deleteTodo(key))
   }
 
-  toggleTodo(key){
+  toggleTodo(todo){
     const {dispatch} = this.props;
-    dispatch(updateTodo(key))
+    dispatch(updateTodo(todo))
   }
 }
 

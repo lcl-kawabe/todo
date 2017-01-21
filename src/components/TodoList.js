@@ -14,7 +14,13 @@ class TodoList extends Component{
         <TableRow>
           <TableRowColumn>
           <Checkbox
-            onClick={() => onTodoClick(todo.key)}
+            onClick={() => {
+              let temp = todo;
+              temp.completed = !todo.completed;
+              onTodoClick(temp)
+            }
+            }
+            checked={todo.completed}
           />
           </TableRowColumn>
           <TableRowColumn>
