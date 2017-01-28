@@ -1,14 +1,14 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import App from './containers/App'
-import reducer from './reducers'
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-import thunk from 'redux-thunk'
+import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
+import App from './containers/App';
+import reducer from './reducers';
+
 const logger = createLogger();
 
 // Needed for onTouchTap
@@ -18,8 +18,8 @@ injectTapEventPlugin();
 const store = createStore(
   reducer,
   {},
-  applyMiddleware(thunk, logger)
-)
+  applyMiddleware(thunk, logger),
+);
 
 render(
   <Provider store={store}>
@@ -27,5 +27,5 @@ render(
       <App />
     </MuiThemeProvider>
   </Provider>,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);

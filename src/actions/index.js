@@ -1,5 +1,5 @@
-import todoActions from './todos'
+import todoActions from './todos';
 
 module.exports = {
   ...todoActions,
-}
+};
