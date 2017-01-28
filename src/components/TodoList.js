@@ -27,7 +27,6 @@ class TodoList extends Component{
             <Task
               key={todo.key}
               text={todo.text}
-              completed={todo.completed}
             />
           </TableRowColumn>
           <TableRowColumn></TableRowColumn>

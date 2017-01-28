@@ -32,24 +32,4 @@ Todo.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-
-// class Todo extends Component {
-//   render(){
-//     const {key, completed, text } = this.props;
-//     return(
-//       <input
-//         type="text"
-//         name="name"
-//         value={text}
-//         onChange={e => {
-//           this.setState({ text: e.target.value });
-//         }}
-//         style={{height:"100%"}}
-//       >
-//       </input>
-//     )
-//   }
-// }
-
-
 export default Todo;
