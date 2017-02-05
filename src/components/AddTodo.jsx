@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, { Component, PropTypes } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -10,38 +10,38 @@ class AddTodo extends Component {
     };
   }
 
-  render(){
-    const submit = e => {
-      e.preventDefault()
+  render() {
+    const submit = (e) => {
+      e.preventDefault();
       if (!this.state.input.trim()) {
-        return
+        return;
       }
-      this.props.onAddTodo(this.state.input)
+      this.props.onAddTodo(this.state.input);
       this.setState({ input: '' });
-    }
-    return(
+    };
+    return (
       <div>
         <form>
           <TextField
             hintText="タスクを入力してください"
             value={this.state.input}
-            onChange={e => {
+            onChange={(e) => {
               this.setState({ input: e.target.value });
             }}
           />
           <RaisedButton
             onClick={submit}
-            primary={true}
+            primary
             label="追加"
-           />
+          />
         </form>
       </div>
-    )
+    );
   }
 }
 
 AddTodo.propTypes = {
   onAddTodo: PropTypes.func.isRequired,
-}
+};
 
 export default AddTodo;

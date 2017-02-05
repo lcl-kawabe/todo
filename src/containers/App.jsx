@@ -11,7 +11,6 @@ import {
 } from '../actions';
 
 class App extends Component {
-
   constructor() {
     super();
     this.addTodo = this.addTodo.bind(this);
@@ -26,17 +25,19 @@ class App extends Component {
 
   addTodo(text) {
     const { dispatch } = this.props;
-    dispatch(addTodo(text))
+    dispatch(addTodo(text));
   }
 
   deleteTodo(key) {
     const { dispatch } = this.props;
-    dispatch(deleteTodo(key))
+    dispatch(deleteTodo(key));
   }
 
   toggleTodo(todo) {
     const { dispatch } = this.props;
-    dispatch(updateTodo(todo));
+    const temp = todo;
+    temp.completed = !todo.completed;
+    dispatch(updateTodo(temp));
   }
 
   render() {
@@ -48,18 +49,21 @@ class App extends Component {
         <TodoList
           todos={todos}
           onDeleteClick={this.deleteTodo}
-          onTodoClick={this.toggleTodo}
+          onCheckBoxClick={this.toggleTodo}
         />
       </div>
     );
   }
 }
+// App.PropTypes = {
+//   dispatch: React.PropTypes.func,
+// };
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => (
+  {
     todos: state.todos ? state.todos : [],
-  };
-};
+  }
+);
 
 export default connect(
   mapStateToProps,

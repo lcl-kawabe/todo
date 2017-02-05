@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, { Component, PropTypes } from 'react';
 import TextField from 'material-ui/TextField';
 
 class Todo extends Component {
@@ -9,27 +9,27 @@ class Todo extends Component {
     };
   }
 
-  render(){
-    const submit = e => {
-      e.preventDefault()
-      this.props.onAddTodo(this.state.Task)
-    }
-    return(
+  render() {
+    // const submit = (e) => {
+    //   e.preventDefault();
+    //   this.props.onAddTodo(this.state.Task);
+    // };
+    return (
       <TextField
         hintText="タスクを入力してください"
         value={this.state.task}
-        onChange={e => {
+        onChange={(e) => {
           this.setState({ task: e.target.value });
         }}
         underlineShow={false}
-        style={{height:"100%"}}
+        style={{ height: '100%' }}
       />
-    )
+    );
   }
 }
 Todo.propTypes = {
-  onAddTodo: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired
-}
+  // onAddTodo: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 export default Todo;
