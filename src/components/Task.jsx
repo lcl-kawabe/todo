@@ -32,6 +32,7 @@ class Todo extends Component {
           update(e);
         }}
         underlineStyle={styles.underlineStyle}
+        fullWidth
       />
     );
   }
