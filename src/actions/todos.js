@@ -1,4 +1,5 @@
 import { firebaseDb } from '../firebase/';
+
 const ref = firebaseDb.ref('todos');
 
 // Subscribe
@@ -61,7 +62,7 @@ function updateTodo(todo){
 }
 
 // DELETE_TASK
-function deleteTodo(key){
+function deleteTodo(key) {
   return dispatch => {
     // パスのオブジェクトを削除します。
     firebaseDb.ref(`todos/${key}`).remove()
@@ -69,7 +70,7 @@ function deleteTodo(key){
         type: 'DELETE_TASK_ERROR',
         message: error.message,
       }));
-  }
+  };
 }
 
 module.exports = {
@@ -77,4 +78,4 @@ module.exports = {
   addTodo,
   updateTodo,
   deleteTodo,
-}
+};
