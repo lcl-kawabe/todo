@@ -22,6 +22,7 @@ const TodoList = (props) => {
             text={todo.text}
           />
         </TableRowColumn>
+        {/* <TableRowColumn></TableRowColumn>
         <TableRowColumn></TableRowColumn>
         <TableRowColumn></TableRowColumn>
         <TableRowColumn></TableRowColumn>
@@ -29,8 +30,7 @@ const TodoList = (props) => {
         <TableRowColumn></TableRowColumn>
         <TableRowColumn></TableRowColumn>
         <TableRowColumn></TableRowColumn>
-        <TableRowColumn></TableRowColumn>
-        <TableRowColumn></TableRowColumn>
+        <TableRowColumn></TableRowColumn> */}
         <TableRowColumn>
           <FlatButton
             style={{ fontSize: 8, minWidth: 30, margin: '0 10' }}

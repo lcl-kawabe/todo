@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
@@ -50,14 +50,20 @@ class App extends Component {
           todos={todos}
           onDeleteClick={this.deleteTodo}
           onCheckBoxClick={this.toggleTodo}
+          onUpdate={this.updateTodo}
         />
       </div>
     );
   }
 }
-// App.PropTypes = {
-//   dispatch: React.PropTypes.func,
-// };
+App.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  todos: PropTypes.arrayOf(PropTypes.shape({
+    completed: PropTypes.bool.isRequired,
+    key: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 const mapStateToProps = state => (
   {
