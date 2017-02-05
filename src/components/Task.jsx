@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 
 const styles = {
   underlineStyle: {
-    borderColor: '#fff',
+    borderColor: 'transparent',
   },
 };
 
