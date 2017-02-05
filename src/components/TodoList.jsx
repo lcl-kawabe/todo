@@ -6,7 +6,7 @@ import Task from './Task';
 
 
 const TodoList = (props) => {
-  const { todos, onDeleteClick, onCheckBoxClick } = props;
+  const { todos, onDeleteClick, onCheckBoxClick, onUpdate } = props;
   const row = todos.map((todo) => {
     const task = (
       <TableRow key={todo.key} >
@@ -19,7 +19,8 @@ const TodoList = (props) => {
         <TableRowColumn>
           <Task
             key={todo.key}
-            text={todo.text}
+            todo={todo}
+            onUpdate={onUpdate}
           />
         </TableRowColumn>
         {/* <TableRowColumn></TableRowColumn>
@@ -83,6 +84,7 @@ TodoList.propTypes = {
   })).isRequired,
   onDeleteClick: PropTypes.func.isRequired,
   onCheckBoxClick: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default TodoList;

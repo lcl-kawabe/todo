@@ -1,35 +1,48 @@
 import React, { Component, PropTypes } from 'react';
 import TextField from 'material-ui/TextField';
 
+const styles = {
+  underlineStyle: {
+    borderColor: '#fff',
+  },
+};
+
 class Todo extends Component {
   constructor(props) {
     super();
     this.state = {
-      task: props.text,
+      task: props.todo.text,
     };
   }
 
   render() {
-    // const submit = (e) => {
-    //   e.preventDefault();
-    //   this.props.onAddTodo(this.state.Task);
-    // };
+    const { todo, onUpdate } = this.props;
+    const update = (e) => {
+      e.preventDefault();
+      const temp = todo;
+      temp.text = e.target.value;
+      onUpdate(temp);
+    };
     return (
       <TextField
         hintText="タスクを入力してください"
         value={this.state.task}
         onChange={(e) => {
           this.setState({ task: e.target.value });
+          update(e);
         }}
-        underlineShow={false}
-        style={{ height: '100%' }}
+        underlineStyle={styles.underlineStyle}
       />
     );
   }
 }
 Todo.propTypes = {
-  // onAddTodo: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  todo: PropTypes.shape({
+    completed: PropTypes.bool.isRequired,
+    key: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Todo;

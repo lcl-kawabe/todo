@@ -16,6 +16,7 @@ class App extends Component {
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
+    this.updateTodo = this.updateTodo.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +39,11 @@ class App extends Component {
     const temp = todo;
     temp.completed = !todo.completed;
     dispatch(updateTodo(temp));
+  }
+
+  updateTodo(todo) {
+    const { dispatch } = this.props;
+    dispatch(updateTodo(todo));
   }
 
   render() {
