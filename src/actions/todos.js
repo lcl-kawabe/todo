@@ -29,10 +29,11 @@ function loadTodos() {
 }
 
 // CREATE_TASK
-function addTodo(text) {
+function addTodo(todo) {
   return (dispatch) => {
     ref.push({
-      text,
+      order: todo.order,
+      text: todo.text,
       completed: false,
     })
       .catch(error => dispatch({
@@ -47,6 +48,7 @@ function updateTodo(todo) {
   return (dispatch) => {
     firebaseDb.ref(`todos/${todo.key}`)
     .update({
+      order: todo.order,
       text: todo.text,
       completed: todo.completed,
     })

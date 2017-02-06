@@ -28,8 +28,8 @@ const styles = {
 
 
 const TodoList = (props) => {
-  const { todos, onDeleteClick, onCheckBoxClick, onUpdate } = props;
-  const row = todos.map((todo) => {
+  const { todos, onDeleteClick, onCheckBoxClick, onUpdate, onAddTodo } = props;
+  const row = todos.map((todo, index) => {
     const task = (
       <TableRow key={todo.key} >
         <TableRowColumn style={styles.completedRowStyle}>
@@ -41,8 +41,10 @@ const TodoList = (props) => {
         <TableRowColumn style={styles.taskRowStyle}>
           <Task
             key={todo.key}
+            order={index}
             todo={todo}
             onUpdate={onUpdate}
+            onAddTodo={onAddTodo}
           />
         </TableRowColumn>
         {/* <TableRowColumn></TableRowColumn>
@@ -107,6 +109,7 @@ TodoList.propTypes = {
   onDeleteClick: PropTypes.func.isRequired,
   onCheckBoxClick: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
+  onAddTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;

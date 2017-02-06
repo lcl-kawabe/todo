@@ -24,9 +24,9 @@ class App extends Component {
     dispatch(loadTodos());
   }
 
-  addTodo(text) {
+  addTodo(todo) {
     const { dispatch } = this.props;
-    dispatch(addTodo(text));
+    dispatch(addTodo(todo));
   }
 
   deleteTodo(key) {
@@ -57,6 +57,7 @@ class App extends Component {
           onDeleteClick={this.deleteTodo}
           onCheckBoxClick={this.toggleTodo}
           onUpdate={this.updateTodo}
+          onAddTodo={this.addTodo}
         />
       </div>
     );

@@ -8,6 +8,7 @@ function todos(state = [], action) {
           const todo = action.data[key];
           todoList.push({
             key,
+            order: todo.order,
             text: todo.text,
             completed: todo.completed,
           });
